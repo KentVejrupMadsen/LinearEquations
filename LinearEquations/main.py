@@ -8,14 +8,14 @@ def main():
         y=4.5
     )
 
-    print(str(v1))
-
     v2 = Vector2D(
         x=4.4,
         y=38.2
     )
 
-    print(str(v2))
+    v1 = v1 + v2
+
+    print(v1)
 
 
 if __name__ == '__main__':
