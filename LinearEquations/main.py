@@ -1,21 +1,24 @@
-from vector2d \
+from vector2d       \
     import Vector2D
 
 
 def main():
-    v1 = Vector2D(
-        x=0.4,
-        y=4.5
+    point_a: Vector2D = Vector2D(
+        x=4.0,
+        y=4.0
     )
 
-    v2 = Vector2D(
-        x=4.4,
-        y=38.2
+    point_b: Vector2D = Vector2D(
+        x=8.0,
+        y=8.0
     )
 
-    v1 = v1 + v2
+    result: Vector2D = point_b - point_a
 
-    print(v1)
+    print(repr(result))
+
+
+
 
 
 if __name__ == '__main__':
