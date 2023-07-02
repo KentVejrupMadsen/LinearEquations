@@ -1,25 +1,24 @@
-from vector2d       \
-    import Vector2D
+from vectors \
+    import Vector3D
 
 
-def main():
-    point_a: Vector2D = Vector2D(
-        x=4.0,
-        y=4.0
+def main_entry():
+    test_vector: Vector3D = Vector3D(
+        x=1.25,
+        y=4.2,
+        z=5.2
     )
 
-    point_b: Vector2D = Vector2D(
-        x=8.0,
-        y=8.0
+    print(
+        str(
+            test_vector
+        )
     )
 
-    result: Vector2D = point_b - point_a
+    print(
+        repr(
+            test_vector
+        )
+    )
 
-    print(repr(result))
 
-
-
-
-
-if __name__ == '__main__':
-    main()

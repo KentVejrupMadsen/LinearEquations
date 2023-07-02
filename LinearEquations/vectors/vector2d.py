@@ -1,18 +1,30 @@
-class Vector2D:
+from vectors \
+    import Vector1D
+
+zero: float = 0.0
+
+
+def get_zero() -> float:
+    global zero
+    return zero
+
+
+class Vector2D(
+    Vector1D
+):
     def __init__(
         self,
-        x: float = 0.0,
-        y: float = 0.0
+        x: float = get_zero(),
+        y: float = get_zero()
     ):
-        self.x: float = x
+        super().__init__(x)
         self.y: float = y
 
     def __del__(
         self
     ):
-        del             \
-            self.x,     \
-            self.y
+        super().__del__()
+        del self.y
 
     def __add__(
         self,
@@ -64,15 +76,6 @@ class Vector2D:
 
         return result_vector
 
-    def subtracting_x(
-        self,
-        x: float
-    ):
-        self.set_x(
-            self.get_x() - x
-        )
-        return self.get_x()
-
     def subtracting_y(
         self,
         y: float
@@ -81,14 +84,6 @@ class Vector2D:
             self.get_y() - y
         )
         return self.get_y()
-
-    def addition_to_x(
-        self,
-        x: float
-    ):
-        self.set_x(
-            self.get_x() + x
-        )
 
     def addition_to_y(
         self,
@@ -99,9 +94,12 @@ class Vector2D:
         )
 
     def set_all_to_zero(self):
-        self.set_both(
-            0.0,
-            0.0
+        self.set_x_to_zero()
+        self.set_y_to_zero()
+
+    def set_y_to_zero(self) -> None:
+        self.set_y(
+            get_zero()
         )
 
     def set_both(
@@ -116,17 +114,6 @@ class Vector2D:
             y
         )
 
-    def get_x(
-        self
-    ) -> float:
-        return self.x
-
-    def set_x(
-        self,
-        value: float
-    ) -> None:
-        self.x: float = value
-
     def get_y(
         self
     ) -> float:
@@ -138,51 +125,11 @@ class Vector2D:
     ) -> None:
         self.y: float = value
 
-    def __len__(self) -> int:
-        return len(
-            dir(self)
-        )
-
-    def __getitem__(
-        self,
-        item: str
-    ):
-        return getattr(
-            self,
-            str(item).lower()
-        )
-
     def __dir__(self) -> list:
-        return [
-            'x',
+        result: list = super().__dir__()
+        result.append(
             'y'
-        ]
-
-    def __repr__(self) -> str:
-        result_dictionary: dict = dict()
-
-        for entry in dir(self):
-            value = self[entry]
-            result_dictionary[entry] = value
-
-        result: str = str(
-            result_dictionary
         )
 
         return result
 
-    def __str__(self):
-        result: str = ''
-
-        end: int = len(self)
-
-        for i in range(end):
-            entry = dir(self)[i]
-            result = result + str(self[entry])
-
-            actual_position: int = i + 1
-            if actual_position < end:
-                result = result + ', '
-
-        final_result: str = '(' + result + ')'
-        return final_result
