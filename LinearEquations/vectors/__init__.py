@@ -17,6 +17,9 @@ from vectors.functions          \
 from vectors.vector_abstract    \
     import VectorAbstract
 
+from vectors.vector_nd          \
+    import VectorND
+
 from vectors.vector1d           \
     import Vector1D
 
