@@ -17,6 +17,9 @@ class Vector1D(
         x: float
     ):
         super().__init__()
+        self.insert_attribute(
+            'x'
+        )
         self.x: float = x
 
     def __del__(self):
@@ -55,10 +58,3 @@ class Vector1D(
             self.get_x() - x
         )
         return self.get_x()
-
-    def __dir__(self) -> list:
-        result: list = super().__dir__()
-        result.append('x')
-
-        return result
-

@@ -22,6 +22,9 @@ class Vector3D(
             x,
             y
         )
+        self.insert_attribute(
+            'z'
+        )
         self.z: float = z
 
     def __del__(self):
@@ -57,10 +60,3 @@ class Vector3D(
             value
         )
 
-    def __dir__(self) -> list:
-        result: list = super().__dir__()
-        result.append(
-            'z'
-        )
-
-        return result

@@ -63,13 +63,30 @@ class VectorAbstract(
 ):
     def __init__(self):
         super().__init__()
+        self.attributes: list = list()
 
     def __del__(self):
-        pass
+        del self.attributes
 
     def __dir__(self) -> list:
-        result: list = []
-        return result
+        return self.get_attributes()
+
+    def insert_attribute(
+        self,
+        value: str
+    ) -> None:
+        self.get_attributes().append(
+            value
+        )
+
+    def get_attributes(self) -> list:
+        return self.attributes
+
+    def set_attributes(
+        self,
+        new_list: list
+    ) -> None:
+        self.attributes = new_list
 
     def value_is_zero(
         self,
@@ -99,11 +116,26 @@ class VectorAbstract(
 
     def __getitem__(
         self,
-        item: str
+        key: str
     ):
+        entry: str = str(key).lower()
+
         return getattr(
             self,
-            str(item).lower()
+            entry
+        )
+
+    def __setitem__(
+        self,
+        key: str,
+        value: float
+    ) -> None:
+        entry: str = str(key).lower()
+
+        setattr(
+            self,
+            entry,
+            value
         )
 
     def __repr__(self) -> str:

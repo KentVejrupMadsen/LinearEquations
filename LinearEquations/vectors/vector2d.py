@@ -18,6 +18,9 @@ class Vector2D(
         y: float = get_zero()
     ):
         super().__init__(x)
+        self.insert_attribute(
+            'y'
+        )
         self.y: float = y
 
     def __del__(
@@ -124,12 +127,4 @@ class Vector2D(
         value: float
     ) -> None:
         self.y: float = value
-
-    def __dir__(self) -> list:
-        result: list = super().__dir__()
-        result.append(
-            'y'
-        )
-
-        return result
 
