@@ -1,4 +1,12 @@
-class GaussianElimination:
+from abc            \
+    import          \
+    ABC,            \
+    abstractmethod
+
+
+class GaussianElimination(
+    ABC
+):
     def __init__(self):
         pass
 

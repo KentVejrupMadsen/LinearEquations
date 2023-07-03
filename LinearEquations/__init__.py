@@ -1,9 +1,9 @@
-from LinearEquations.vectors    \
+from vectors    \
     import      \
     Vector1D,   \
     Vector2D,   \
     Vector3D
 
-from LinearEquations.algorithms \
+from algorithms \
     import \
     GaussianElimination
