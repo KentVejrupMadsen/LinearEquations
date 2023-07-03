@@ -5,57 +5,20 @@ from abc                    \
 
 from math                   \
     import                  \
-    pow,                    \
     sqrt
+
+from vectors                \
+    import                  \
+    get_float_zero,         \
+    power_of_two,           \
+    get_delimiter,          \
+    get_bracket_begins,     \
+    get_bracket_ends,       \
+    get_integer_zero
 
 from HardenedSteel.objects  \
     import                  \
     CounterObject
-
-from HardenedSteel.globals \
-    import \
-    get_integer_zero
-
-integer_two: int = 2
-zero: float = 0.0
-
-brackets_begin: int = ord('(')
-brackets_end: int = ord(')')
-delimiter: int = ord(',')
-
-
-def get_delimiter() -> chr:
-    global delimiter
-    return chr(delimiter)
-
-
-def get_bracket_begins() -> chr:
-    global brackets_begin
-    return chr(brackets_begin)
-
-
-def get_bracket_ends() -> chr:
-    global brackets_end
-    return chr(brackets_end)
-
-
-def get_integer_two() -> int:
-    global integer_two
-    return integer_two
-
-
-def get_zero() -> float:
-    global zero
-    return zero
-
-
-def power_of_two(
-    value: float
-) -> float:
-    return pow(
-        value,
-        get_integer_two()
-    )
 
 
 class VectorAbstract(
@@ -71,6 +34,9 @@ class VectorAbstract(
     def __dir__(self) -> list:
         return self.get_attributes()
 
+    def get_zero(self) -> float:
+        return get_float_zero()
+
     def insert_attribute(
         self,
         value: str
@@ -79,7 +45,9 @@ class VectorAbstract(
             value
         )
 
-    def get_attributes(self) -> list:
+    def get_attributes(
+        self
+    ) -> list:
         return self.attributes
 
     def set_attributes(
@@ -92,10 +60,12 @@ class VectorAbstract(
         self,
         value: float
     ) -> bool:
-        return value == get_zero()
+        return value == get_float_zero()
 
-    def calculate_magnitude(self) -> float:
-        result: float = get_zero()
+    def calculate_magnitude(
+        self
+    ) -> float:
+        result: float = get_float_zero()
 
         for key in dir(self):
             value: float = self[key]
@@ -111,7 +81,9 @@ class VectorAbstract(
 
         return result
 
-    def __float__(self) -> float:
+    def __float__(
+        self
+    ) -> float:
         return self.calculate_magnitude()
 
     def __getitem__(
@@ -138,7 +110,9 @@ class VectorAbstract(
             value
         )
 
-    def __repr__(self) -> str:
+    def __repr__(
+        self
+    ) -> str:
         result_dictionary: dict = dict()
 
         for entry in dir(self):
@@ -151,7 +125,9 @@ class VectorAbstract(
 
         return result
 
-    def __str__(self):
+    def __str__(
+        self
+    ):
         result: str = ''
 
         size_of: int = len(self)
@@ -174,7 +150,9 @@ class VectorAbstract(
         final_result: str = get_bracket_begins() + result + get_bracket_ends()
         return final_result
 
-    def __len__(self) -> int:
+    def __len__(
+        self
+    ) -> int:
         return len(
             dir(self)
         )

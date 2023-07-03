@@ -1,12 +1,7 @@
-from vectors \
-    import Vector1D
-
-zero: float = 0.0
-
-
-def get_zero() -> float:
-    global zero
-    return zero
+from vectors            \
+    import              \
+    get_float_zero,     \
+    Vector1D
 
 
 class Vector2D(
@@ -14,8 +9,8 @@ class Vector2D(
 ):
     def __init__(
         self,
-        x: float = get_zero(),
-        y: float = get_zero()
+        x: float = get_float_zero(),
+        y: float = get_float_zero()
     ):
         super().__init__(x)
         self.insert_attribute(
@@ -102,7 +97,7 @@ class Vector2D(
 
     def set_y_to_zero(self) -> None:
         self.set_y(
-            get_zero()
+            super().get_zero()
         )
 
     def set_both(

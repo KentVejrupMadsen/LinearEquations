@@ -1,12 +1,7 @@
-from vectors \
-    import Vector2D
-
-zero: float = 0.0
-
-
-def get_zero() -> float:
-    global zero
-    return zero
+from vectors                \
+    import                  \
+    get_float_zero,         \
+    Vector2D
 
 
 class Vector3D(
@@ -14,9 +9,9 @@ class Vector3D(
 ):
     def __init__(
         self,
-        x: float = get_zero(),
-        y: float = get_zero(),
-        z: float = get_zero()
+        x: float = get_float_zero(),
+        y: float = get_float_zero(),
+        z: float = get_float_zero()
     ):
         super().__init__(
             x,
@@ -39,6 +34,11 @@ class Vector3D(
         value: float
     ) -> None:
         self.z = value
+
+    def set_z_to_zero(self) -> None:
+        self.set_z(
+            self.get_zero()
+        )
 
     def addition_to_z(
         self,
