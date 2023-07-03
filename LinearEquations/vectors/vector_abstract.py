@@ -44,6 +44,9 @@ class VectorAbstract(
         self,
         value: str
     ) -> None:
+        if bool(self):
+            raise AssertionError('blocked by lock')
+
         self.get_attributes().append(
             value
         )
@@ -188,3 +191,6 @@ class VectorAbstract(
         return len(
             dir(self)
         )
+
+    def __bool__(self):
+        return self.get_lock()
