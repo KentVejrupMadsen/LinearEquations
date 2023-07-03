@@ -27,9 +27,12 @@ class VectorAbstract(
     def __init__(self):
         super().__init__()
         self.attributes: list = list()
+        self.lock: bool = False
 
     def __del__(self):
-        del self.attributes
+        del                     \
+            self.attributes,    \
+            self.lock
 
     def __dir__(self) -> list:
         return self.get_attributes()
@@ -45,6 +48,15 @@ class VectorAbstract(
             value
         )
 
+    def get_lock(self) -> bool:
+        return self.lock
+
+    def set_lock(
+        self,
+        with_value: bool
+    ) -> None:
+        self.lock = with_value
+
     def get_attributes(
         self
     ) -> list:
@@ -55,6 +67,18 @@ class VectorAbstract(
         new_list: list
     ) -> None:
         self.attributes = new_list
+
+    def exist_attribute(
+        self,
+        key: str
+    ) -> bool:
+        entry_key: str = key.lower()
+
+        for selected_key in self.get_attributes():
+            if entry_key == selected_key:
+                return True
+
+        return False
 
     def value_is_zero(
         self,
@@ -108,6 +132,14 @@ class VectorAbstract(
             self,
             entry,
             value
+        )
+
+    def __missing__(
+        self,
+        key: str
+    ):
+        raise TypeError(
+            'attribute not found'
         )
 
     def __repr__(

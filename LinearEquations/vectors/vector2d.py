@@ -10,13 +10,20 @@ class Vector2D(
     def __init__(
         self,
         x: float = get_float_zero(),
-        y: float = get_float_zero()
+        y: float = get_float_zero(),
+        lock: bool = True
     ):
-        super().__init__(x)
+        super().__init__(
+            x=x,
+            lock=False
+        )
         self.insert_attribute(
             'y'
         )
         self.y: float = y
+        self.set_lock(
+            lock
+        )
 
     def __del__(
         self

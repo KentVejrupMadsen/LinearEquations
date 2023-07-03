@@ -9,13 +9,18 @@ class Vector1D(
 ):
     def __init__(
         self,
-        x: float = get_float_zero()
+        x: float = get_float_zero(),
+        lock: bool = True
     ):
         super().__init__()
         self.insert_attribute(
             'x'
         )
         self.x: float = x
+
+        self.set_lock(
+            lock
+        )
 
     def __del__(self):
         super().__del__()

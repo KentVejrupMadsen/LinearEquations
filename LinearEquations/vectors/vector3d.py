@@ -11,16 +11,22 @@ class Vector3D(
         self,
         x: float = get_float_zero(),
         y: float = get_float_zero(),
-        z: float = get_float_zero()
+        z: float = get_float_zero(),
+        lock: bool = True
     ):
         super().__init__(
-            x,
-            y
+            x=x,
+            y=y,
+            lock=False
         )
         self.insert_attribute(
             'z'
         )
         self.z: float = z
+
+        self.set_lock(
+            lock
+        )
 
     def __del__(self):
         super().__del__()
