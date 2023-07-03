@@ -1,3 +1,6 @@
+from vectors \
+    import VectorAbstract
+
 zero: float = 0.0
 
 
@@ -6,14 +9,18 @@ def get_zero() -> float:
     return zero
 
 
-class Vector1D:
+class Vector1D(
+    VectorAbstract
+):
     def __init__(
         self,
         x: float
     ):
+        super().__init__()
         self.x: float = x
 
     def __del__(self):
+        super().__del__()
         del self.x
 
     def set_x_to_zero(self) -> None:
@@ -50,48 +57,8 @@ class Vector1D:
         return self.get_x()
 
     def __dir__(self) -> list:
-        result: list = ['x']
-        return result
-
-    def __len__(self) -> int:
-        return len(
-            dir(self)
-        )
-
-    def __getitem__(
-        self,
-        item: str
-    ):
-        return getattr(
-            self,
-            str(item).lower()
-        )
-
-    def __repr__(self) -> str:
-        result_dictionary: dict = dict()
-
-        for entry in dir(self):
-            value = self[entry]
-            result_dictionary[entry] = value
-
-        result: str = str(
-            result_dictionary
-        )
+        result: list = super().__dir__()
+        result.append('x')
 
         return result
 
-    def __str__(self):
-        result: str = ''
-
-        end: int = len(self)
-
-        for i in range(end):
-            entry = dir(self)[i]
-            result = result + str(self[entry])
-
-            actual_position: int = i + 1
-            if actual_position < end:
-                result = result + ', '
-
-        final_result: str = '(' + result + ')'
-        return final_result

@@ -1,3 +1,6 @@
+from vectors.vector_abstract \
+    import VectorAbstract
+
 from vectors.vector1d \
     import Vector1D
 

@@ -1,24 +1,14 @@
 from vectors \
-    import Vector3D
+    import Vector2D
 
 
 def main_entry():
-    test_vector: Vector3D = Vector3D(
-        x=1.25,
-        y=4.2,
-        z=5.2
+    v_test: Vector2D = Vector2D(
+        x=4.24,
+        y=8.96
     )
 
-    print(
-        str(
-            test_vector
-        )
-    )
-
-    print(
-        repr(
-            test_vector
-        )
-    )
+    print(v_test)
+    print(float(v_test))
 
 
