@@ -1,4 +1,4 @@
-from vectors \
+from LinearEquations \
     import Vector2D
 
 
