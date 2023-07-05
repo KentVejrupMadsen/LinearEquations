@@ -1,6 +1,6 @@
-from vectors            \
-    import              \
-    get_float_zero,     \
+from LinearEquations.vectors    \
+    import                      \
+    get_float_zero,             \
     Vector1D
 
 
@@ -98,11 +98,15 @@ class Vector2D(
             self.get_y() + y
         )
 
-    def set_all_to_zero(self):
+    def set_all_to_zero(
+        self
+    ):
         self.set_x_to_zero()
         self.set_y_to_zero()
 
-    def set_y_to_zero(self) -> None:
+    def set_y_to_zero(
+        self
+    ) -> None:
         self.set_y(
             super().get_zero()
         )

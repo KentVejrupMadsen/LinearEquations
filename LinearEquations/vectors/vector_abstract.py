@@ -1,24 +1,26 @@
-from abc                    \
-    import                  \
-    ABC,                    \
+from abc                            \
+    import                          \
+    ABC,                            \
     abstractmethod
 
-from math                   \
-    import                  \
+from math                           \
+    import                          \
     sqrt
 
-from vectors                \
-    import                  \
-    get_float_zero,         \
-    power_of_two,           \
-    get_delimiter,          \
-    get_bracket_begins,     \
-    get_bracket_ends,       \
-    get_integer_zero
+from LinearEquations.vectors        \
+    import                          \
+    get_float_zero,                 \
+    power_of_two,                   \
+    get_delimiter,                  \
+    get_bracket_begins,             \
+    get_bracket_ends
 
-from HardenedSteel.objects  \
-    import                  \
+from HardenedSteel.objects          \
+    import                          \
     CounterObject
+
+from HardenedSteel.globals          \
+    import get_integer_zero
 
 
 class VectorAbstract(
@@ -39,6 +41,24 @@ class VectorAbstract(
 
     def get_zero(self) -> float:
         return get_float_zero()
+
+    def assign_values(
+        self,
+        values: list
+    ) -> None:
+        entries: list = dir(self)
+        size_of_entries: int = len(
+            entries
+        )
+
+        size_of_values: int = len(values)
+
+        if not(size_of_values <= size_of_entries):
+            raise AssertionError('outside range')
+
+        for index in range(size_of_values):
+            entry = entries[index]
+            self[entry] = values[index]
 
     def insert_attribute(
         self,

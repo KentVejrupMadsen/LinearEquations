@@ -1,6 +1,6 @@
-from vectors            \
-    import              \
-    get_float_zero,     \
+from LinearEquations.vectors    \
+    import                      \
+    get_float_zero,             \
     VectorAbstract
 
 
@@ -22,11 +22,15 @@ class Vector1D(
             lock
         )
 
-    def __del__(self):
+    def __del__(
+        self
+    ):
         super().__del__()
         del self.x
 
-    def set_x_to_zero(self) -> None:
+    def set_x_to_zero(
+        self
+    ) -> None:
         self.set_x(
             self.get_zero()
         )

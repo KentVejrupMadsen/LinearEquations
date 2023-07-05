@@ -1,6 +1,6 @@
-from vectors                \
-    import                  \
-    get_float_zero,         \
+from LinearEquations.vectors    \
+    import                      \
+    get_float_zero,             \
     Vector2D
 
 
@@ -41,7 +41,9 @@ class Vector3D(
     ) -> None:
         self.z = value
 
-    def set_z_to_zero(self) -> None:
+    def set_z_to_zero(
+        self
+    ) -> None:
         self.set_z(
             self.get_zero()
         )

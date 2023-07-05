@@ -1,30 +1,25 @@
-from HardenedSteel.globals      \
-    import                      \
-    get_integer_zero,           \
-    get_integer_one
-
-from vectors.constants          \
-    import                      \
-    get_float_zero,             \
-    get_integer_two,            \
-    get_delimiter,              \
-    get_bracket_ends,           \
+from LinearEquations.vectors.constants          \
+    import                                      \
+    get_float_zero,                             \
+    get_integer_two,                            \
+    get_delimiter,                              \
+    get_bracket_ends,                           \
     get_bracket_begins
 
-from vectors.functions          \
+from LinearEquations.vectors.basics             \
     import power_of_two
 
-from vectors.vector_abstract    \
+from LinearEquations.vectors.vector_abstract    \
     import VectorAbstract
 
-from vectors.vector_nd          \
+from LinearEquations.vectors.vector_nd          \
     import VectorND
 
-from vectors.vector1d           \
+from LinearEquations.vectors.vector1d           \
     import Vector1D
 
-from vectors.vector2d           \
+from LinearEquations.vectors.vector2d           \
     import Vector2D
 
-from vectors.vector3d           \
+from LinearEquations.vectors.vector3d           \
     import Vector3D

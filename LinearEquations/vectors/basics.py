@@ -1,7 +1,7 @@
-from math                   \
+from math                                   \
     import pow
 
-from vectors                \
+from LinearEquations.vectors                \
     import get_integer_two
 
 
